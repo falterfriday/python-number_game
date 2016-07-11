@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
 app.secret_key='hjkfjkhadfhjadfshjadshjkdsjhksdjkh'
-
 import random
-
 @app.route('/')
 def index():
 	if not session.has_key('number'):
@@ -14,7 +12,6 @@ def index():
 		session['guess'] = 0
 	print session
 	return render_template('index.html', number=number)
-
 @app.route('/submit', methods=['POST'])
 def submit():
 	guess1 = int(request.form['guess'])
@@ -28,10 +25,8 @@ def submit():
 	session['guess']=guess1
 	print session
 	return redirect('/')
-
 @app.route('/clear')
 def clear():
 	session.clear()
 	return redirect('/')
-
 app.run(debug=True)
