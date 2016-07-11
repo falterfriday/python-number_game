@@ -24,17 +24,28 @@ Description: Never Stop Learning
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
 <div class="wrapper">
 	<h1>Welcome to the Great Number Game!</h1>
 	<h4>I am thinking of a number between 1 and 100<br>
 	Take a guess!</h4>
-	<div class="box wrong" id="{{showme1}}">Too Low!</div>
-	<br>
-	<div class="box wrong" id="{{showme2}}">Too High!</div><br>
-	<div class="box correct" id="{{showme3}}">{{number}} was the number!<br>
-	<button name='clear'>Play again!</button>
-	</div>
 
+	{% if 0 < session['guess'] < session['number'] %}
+
+	<div class="box wrong">Too Low!</div>
+	
+	<br>
+	{% elif session['guess'] > session['number'] %}
+
+	<div class="box wrong">Too High!</div><br>
+
+	{% elif session['guess'] == session['number'] %}
+	<div class="box correct">{{number}} was the number!<br>
+	
+	<button name='clear'>Play again!</button>
+	{% endif %}
+	</div>
+	
 	<form method='post' action='/submit'>
 		<input type="text" name="guess" placeholder="Number Goes Here"><br>
 		<input type="submit" name="submit" value="Submit">

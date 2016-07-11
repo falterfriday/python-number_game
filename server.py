@@ -8,23 +8,25 @@ import random
 def index():
 	if not session.has_key('number'):
 		session['number'] = random.randint(1,100)
-	print 'Random number is', session['number']
+	print 'The random number is', session['number']
 	number = session['number']
+	if not session.has_key('guess'):
+		session['guess'] = 0
+	print session
 	return render_template('index.html', number=number)
 
 @app.route('/submit', methods=['POST'])
 def submit():
-	guess=int(request.form['guess'])
+	guess1 = int(request.form['guess'])
 	if session['number'] == int(request.form['guess']):
 		print 'Your Guess is Correct'
-		showme3 = 'showme'
 	elif int(request.form['guess']) > session['number']:
 		print 'Your Guess is Too High'
-		showme2='showme'
 	elif int(request.form['guess']) < session['number']:
 		print 'Your Guess is Too Low'
-		showme1='showme'
-
+	print 'Your guess was', guess1
+	session['guess']=guess1
+	print session
 	return redirect('/')
 # @app.route('/')
 # def clear():

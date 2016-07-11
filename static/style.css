@@ -12,11 +12,11 @@
 	border: solid black 1px;
 }
 .box.wrong {
-	display: none;
+	/*display: none;*/
 	background-color: red;
 	color: white;
 }.box.correct {
-	display: none;
+	/*display: none;*/
 	background-color: green;
 	color: white;
 }
