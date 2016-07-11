@@ -14,6 +14,7 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
+	guess=int(request.form['guess'])
 	if session['number'] == int(request.form['guess']):
 		print 'Your Guess is Correct'
 		showme3 = 'showme'
@@ -23,6 +24,7 @@ def submit():
 	elif int(request.form['guess']) < session['number']:
 		print 'Your Guess is Too Low'
 		showme1='showme'
+
 	return redirect('/')
 # @app.route('/')
 # def clear():
