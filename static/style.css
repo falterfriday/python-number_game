@@ -2,13 +2,13 @@
 	border: solid black 1px;
 	text-align: center;
 	padding-bottom: 20px;
-	height: 400px;
+	height: auto;
 	width: 400px;
 }
 .box {
 	display: inline-block;
-	height: 200px;
-	width:200px;
+	height: 20%;
+	width:20%;
 	border: solid black 1px;
 }
 .box.wrong {
@@ -19,4 +19,7 @@
 	display: none;
 	background-color: green;
 	color: white;
+}
+#showme {
+	display: inline-block;
 }
