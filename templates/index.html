@@ -41,11 +41,12 @@ Description: Never Stop Learning
 
 	{% elif session['guess'] == session['number'] %}
 	<div class="box correct">{{number}} was the number!<br>
-	
-	<button name='clear'>Play again!</button>
-	{% endif %}
+	<form action="clear">
+		<input type='submit' name='clear' value="Play Again!">
+	</form>
 	</div>
 	
+	{% endif %}
 	<form method='post' action='/submit'>
 		<input type="text" name="guess" placeholder="Number Goes Here"><br>
 		<input type="submit" name="submit" value="Submit">

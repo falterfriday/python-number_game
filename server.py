@@ -28,8 +28,10 @@ def submit():
 	session['guess']=guess1
 	print session
 	return redirect('/')
-# @app.route('/')
-# def clear():
-# 	session.clear()
-# 	return redirect('/')
+
+@app.route('/clear')
+def clear():
+	session.clear()
+	return redirect('/')
+
 app.run(debug=True)
